@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flye Assignment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+<!-- Loader -->
+    <div id="loader-wrapper" style="display: none;">
+        <div class="loader"></div>
+    </div>
+
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-xl-12 col-md-12 w-100">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card-block text-center text-black">
+                                <div class="m-b-25">
+                                    <!-- Profile Img -->
+                                    <img src="" class="rounded-circle" alt="Profile Not Found!"
+                                        width="254" height="236">
+                                </div>
+                                <!-- Git link -->
+                                <p><i class="bi bi-link"></i> <a href="" id="gitLink"></a></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-block">
+                                <h3 id="username"></h3>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- Bio -->
+                                        <p class="m-b-10 f-w-600"> I’m currently working on ... Azure Static Web Apps, projects for 30+ Web frameworks, VS Code extensions, and Azure.</p>
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-geo-alt-fill"></i>
+                                            <!-- Location -->
+                                            <p class="fs-5 ms-2 mb-0">Orlando, FL</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-sm-6">
+                                        <!-- twitter -->
+                                        <p class="fw-bolder mt-3">Twitter: <a href="https://twitter.com/john_papa">https://twitter.com/john_papa</a></p>
+                                    </div>
+                                </div>
+                                <ul class="social-link list-unstyled m-t-40 m-b-10">
+                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+                                            data-original-title="facebook" data-abc="true"><i
+                                                class="mdi mdi-facebook feather icon-facebook facebook"
+                                                aria-hidden="true"></i></a></li>
+                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+                                            data-original-title="twitter" data-abc="true"><i
+                                                class="mdi mdi-twitter feather icon-twitter twitter"
+                                                aria-hidden="true"></i></a></li>
+                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+                                            data-original-title="instagram" data-abc="true"><i
+                                                class="mdi mdi-instagram feather icon-instagram instagram"
+                                                aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- Repo Record select -->
+                            <select class="form-select w-25 float-end" id="selectrepo" aria-label="Default select example">
+                                <option>select records</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                              </select>
+                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- The List is Appended Here -->
+            <div class="row" id="repositoriesRow"></div>
+          
+
+            <div class="d-flex justify-content-center">
+                <!-- <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchPreviousPage()">Older</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(1)">1</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(2)">2</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(3)">3</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(4)">4</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(5)">5</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(6)">6</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(7)">7</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(8)">8</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(9)">9</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchNextPage()">Newer</a></li>
+                    </ul>
+                </nav> -->
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link" href="javascript:void(0)" aria-label="Previous" onclick="fetchPreviousPage()">
+                          <span aria-hidden="true">&laquo;</span>
+                          <span class="sr-only"></span>
+                        </a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(1)">1</a></li>
+                      <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(2)">2</a></li>
+                      <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(3)">3</a></li>
+                      <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(4)">4</a></li>
+                      <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(5)">5</a></li>
+                      <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(6)">6</a></li>
+                      <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(7)">7</a></li>
+                      <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(8)">8</a></li>
+                      <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fetchRepositories(9)">9</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="javascript:void(0)" aria-label="Next" onclick="fetchNextPage()">
+                          <span aria-hidden="true">&raquo;</span>
+                          <span class="sr-only"></span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+             
+                  
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1"><i class="bi bi-arrow-left"></i> Previous</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next <i class="bi bi-arrow-right"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+                
+                        
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- Jquery CDN Link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Project Script -->
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
